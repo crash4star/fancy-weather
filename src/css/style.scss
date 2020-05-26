@@ -1,0 +1,26 @@
+@import "./blocks/header.scss";
+@import "./blocks/content.scss";
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.global-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/test.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: -2;
+}

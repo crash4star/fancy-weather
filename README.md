@@ -1,2 +1,2 @@
-# fancy-weather
-rsschool fancy-weather task
+# Movie-search
+Task for rsschool - Movie search

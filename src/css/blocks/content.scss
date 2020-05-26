@@ -1,0 +1,90 @@
+.content {
+    outline: 1px solid green;
+
+    &__info {
+        width: 45%;
+        outline: 1px solid red;
+    }
+
+    &__info-headline {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        text-transform: uppercase;
+    }
+
+    &__info-today {
+        display: flex;
+        outline: 1px solid pink;
+    }
+
+    &__info-today-item {
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: #ffffff;
+
+        &--date {
+            margin-right: 1rem;
+        }
+    }
+
+    &__info-data {
+        display: flex;
+        justify-content: space-between;
+        outline: 1px solid yellow;
+
+        &-temperature {
+            position: relative;
+            font-size: 15rem;
+            font-weight: 700;
+            color: #ffffff;
+        
+            &::before {
+                content: "";
+                position: absolute;
+                top: 3.8rem;
+                right: -4rem;
+                width: 2rem;
+                height: 2rem;
+                background-color: transparent;
+                border-radius: 50%;
+                border: 0.5rem solid #ffffff;
+            }
+        }
+
+        &-meteo {
+            display: flex;
+            flex-direction: column;
+            width: 45%;
+            outline: 1px solid purple;
+
+            &-icon {
+                width: 8rem;
+                height: 5rem;
+                margin-bottom: 3.2rem;
+                background-image: url('../img/cloud-icon.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+
+            &-info {
+                width: auto;
+                align-self: flex-end;
+                outline: 1px solid white;
+
+                &-item {
+                    margin-bottom: 0.7rem;
+                    font-weight: 600;
+                    color: #ffffff;
+                    line-height: 1rem;
+                    text-transform: uppercase;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

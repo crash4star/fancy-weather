@@ -1,0 +1,169 @@
+.header {
+    @media (min-width: 0px) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        outline: 1px solid red;
+    }
+
+    @media (min-width: 768px) {
+        flex-wrap: nowrap;
+        margin-bottom: 4rem;
+    }
+
+    &__options-bar {
+        @media (min-width: 0px) {
+            display: flex;
+            justify-content: space-between;
+            height: 2.5rem;
+            width: 13.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            margin-bottom: 0;
+        }
+
+    }
+
+    &__options-btn {
+        position: relative;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: rgba(174, 181, 185, 0.5);
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.1);
+        color: #ffffff;
+
+        &--drop {
+            width: 4rem;
+        }
+
+        &--picture {
+            background-image: url('../img/mountain-icon.svg');
+            background-repeat: no-repeat;
+            background-size: 116%;
+            background-position: center;
+        }
+
+        &--unit:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+
+        &--unit:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+
+        &--unit {
+            background-color: rgba(76, 82, 85, 0.4);
+        }
+
+        &--unit-active {
+            background-color: rgba(174, 181, 185, 0.5);
+        }
+
+        &--unit-active:hover {
+            cursor: default;
+            background-color: rgba(174, 181, 185, 0.5);
+        }
+
+        &--unit::before {
+            content: "";
+            position: absolute;
+            top: 40%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 50%;
+            border: 0.09rem solid #ffffff;
+            background-color: transparent;
+        }
+
+        &--search {
+            width: 5rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
+
+    &__options-bar--unit {
+        display: flex;
+        justify-content: space-between;
+        width: 5rem;
+    }
+
+    &__search-bar {
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 15rem;
+            height: 2.5rem;
+            background-color: #7070707c;
+            border-radius: 5px 0 0 5px;
+            filter: blur(3px);
+            -webkit-filter: blur(3px);
+            z-index: -1;
+        }
+    }
+
+    &__search-bar-input {
+        position: relative;
+        width: 15rem;
+        height: 2.5rem;
+        padding-left: 1rem;
+        padding-right: 2rem;
+        background: rgba(76, 82, 85, 0.4);
+        box-shadow: 0 0 0 1px rgba(110, 117, 121, 0.4);
+        border: none;
+        border-radius: 5px 0 0 5px;
+        transition: all 0.4s ease;
+        font-size: 14px;
+        line-height: 14px;
+        color: #dddddd;
+        outline: none;
+
+        &::placeholder {
+            color: #cecece;
+            font-size: 14px;
+            line-height: 14px;
+        }
+
+        &:hover {
+            box-shadow: 0 0 0 1px rgba(152, 161, 165, 0.4);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 1px rgba(152, 161, 165, 0.4);
+            background: rgba(61, 66, 68, 0.4);
+            color: #ffffff;
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
+
+    &__search-bar-voice-btn {
+        position: absolute;
+        top: 50%;
+        right: 25%;
+        transform: translate(-50%, -50%);
+        width: 1.2rem;
+        height: 1.2rem;
+        border: none;
+        background-color: transparent;
+        background-image: url('../img/microphone-icon.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        color: rgba(255, 255, 255, 0.4);
+        ;
+        z-index: 10;
+    }
+}
