@@ -46,8 +46,8 @@
         &--picture {
             background-image: url('../img/mountain-icon.svg');
             background-repeat: no-repeat;
-            background-size: 116%;
-            background-position: center;
+            background-size: 100%;
+            background-position: center 0.3rem;
         }
 
         &--unit:first-child {
@@ -84,10 +84,26 @@
             background-color: transparent;
         }
 
-        &--search {
-            width: 5rem;
-            text-transform: uppercase;
-            text-align: center;
+        @media (min-width: 0px) {
+            &--search {
+                width: 2.5rem;
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 0;
+                background-image: url('../img/search-icon.svg');
+                background-repeat: no-repeat;
+                background-size: 40%;
+                background-position: center;
+                border-radius: 0 5px 5px 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            &--search {
+                width: 5rem;
+                text-transform: uppercase;
+                text-align: center;
+            }
         }
     }
 
@@ -97,73 +113,105 @@
         width: 5rem;
     }
 
-    &__search-bar {
-        position: relative;
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 15rem;
+    @media (min-width: 0px) {
+        .search__boot {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+            outline: 1px solid red;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .search__boot {
+            width: 20rem;
+        }
+    }
+
+    @media (min-width: 0px) {
+        &__search-bar {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+            outline: 1px solid red;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &__search-bar {
+            width: 20rem;
+        }
+    }
+
+    @media (min-width: 0px) {
+        &__search-bar-input {
+            position: relative;
+            width: 100%;
             height: 2.5rem;
-            background-color: #7070707c;
+            padding-left: 1rem;
+            padding-right: 2rem;
+            background-color: rgba(76, 82, 85, 0.4);
+            box-shadow: 0 0 0 1px rgba(110, 117, 121, 0.4);
+            backdrop-filter: blur(0.2rem);
+            border: none;
             border-radius: 5px 0 0 5px;
-            filter: blur(3px);
-            -webkit-filter: blur(3px);
-            z-index: -1;
+            transition: all 0.4s ease;
+            font-size: 14px;
+            line-height: 14px;
+            color: #dddddd;
+            outline: none;
+    
+            &::placeholder {
+                color: #cecece;
+                font-size: 14px;
+                line-height: 14px;
+            }
+    
+            &:hover {
+                box-shadow: 0 0 0 1px rgba(152, 161, 165, 0.4);
+            }
+    
+            &:focus {
+                box-shadow: 0 0 0 1px rgba(152, 161, 165, 0.4);
+                background: rgba(61, 66, 68, 0.4);
+                color: #ffffff;
+                font-size: 14px;
+                line-height: 14px;
+            }
         }
     }
 
-    &__search-bar-input {
-        position: relative;
-        width: 15rem;
-        height: 2.5rem;
-        padding-left: 1rem;
-        padding-right: 2rem;
-        background: rgba(76, 82, 85, 0.4);
-        box-shadow: 0 0 0 1px rgba(110, 117, 121, 0.4);
-        border: none;
-        border-radius: 5px 0 0 5px;
-        transition: all 0.4s ease;
-        font-size: 14px;
-        line-height: 14px;
-        color: #dddddd;
-        outline: none;
-
-        &::placeholder {
-            color: #cecece;
-            font-size: 14px;
-            line-height: 14px;
-        }
-
-        &:hover {
-            box-shadow: 0 0 0 1px rgba(152, 161, 165, 0.4);
-        }
-
-        &:focus {
-            box-shadow: 0 0 0 1px rgba(152, 161, 165, 0.4);
-            background: rgba(61, 66, 68, 0.4);
-            color: #ffffff;
-            font-size: 14px;
-            line-height: 14px;
+    @media (min-width: 992px) {
+        &__search-bar-input {
+            width: 15rem;
         }
     }
 
-    &__search-bar-voice-btn {
-        position: absolute;
-        top: 50%;
-        right: 25%;
-        transform: translate(-50%, -50%);
-        width: 1.2rem;
-        height: 1.2rem;
-        border: none;
-        background-color: transparent;
-        background-image: url('../img/microphone-icon.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        color: rgba(255, 255, 255, 0.4);
-        ;
-        z-index: 10;
+    @media (min-width: 0px) {
+        &__search-bar-voice-btn {
+            position: absolute;
+            top: 50%;
+            right: 2.8rem;
+            transform: translate(-50%, -50%);
+            width: 1.2rem;
+            height: 1.2rem;
+            border: none;
+            background-color: transparent;
+            background-image: url('../img/microphone-icon.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            color: rgba(255, 255, 255, 0.4);
+            ;
+            z-index: 10;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &__search-bar-voice-btn {
+            right: 3rem;
+        }
     }
 }
