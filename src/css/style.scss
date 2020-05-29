@@ -1,5 +1,6 @@
 @import "./blocks/header.scss";
 @import "./blocks/content.scss";
+@import "./blocks/loader.scss";
 
 
 body {
@@ -12,7 +13,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.global-bg {
+#root {
     position: fixed;
     top: 0;
     left: 0;
