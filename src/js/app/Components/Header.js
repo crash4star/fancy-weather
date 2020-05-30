@@ -1,7 +1,8 @@
-import Block from '../Block';
+import Block from './Block';
 import Button from '../Elements/Button';
 import Dropdown from '../Elements/Dropdown';
 import ToggleBtn from '../Elements/Toggle-btn';
+import Searchbar from '../Elements/Search-bar';
 
 class Header extends Block {
     constructor(parent) {
@@ -9,8 +10,8 @@ class Header extends Block {
         this.parent = parent;
     }
 
-    elements() {
-        const header = new Block('header', 'header', `${this.parent}`);
+    create() {
+        const header = new Block('header', 'header', `${this.parent}`,'header');
         header.create();
 
         const headerBar = new Block('div', 'header__options-bar', `.${header.classStyle}`);
@@ -28,6 +29,12 @@ class Header extends Block {
 
         const choiceUnitBtns = new ToggleBtn(['c', 'f']);
         headerBar.insert(choiceUnitBtns.create());
+
+        const headerSearch = new Block('div', 'header__search-bar', `.${header.classStyle}`);
+        headerSearch.create();
+
+        const searchCityBar = new Searchbar('Search city or ZIP', true, `.${headerSearch.classStyle}`, 'search__boot');
+        searchCityBar.create();
     }
 }
 

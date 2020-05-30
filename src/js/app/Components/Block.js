@@ -1,21 +1,19 @@
 class Block {
-    constructor(tag, classStyle, parent) {
+    constructor(tag, classStyle, parent, id) {
         this.tag = tag;
         this.classStyle = classStyle;
         this.parent = parent;
+        this.id = id;
     }
     
     create() {
         const block = document.createElement(`${this.tag}`);
         block.className = this.classStyle;
-
-        const container = document.createElement('div');
-        container.className = 'container';
-        container.append(block);
+        block.setAttribute('id', this.id);
 
         const parentBlock = document.querySelector(`${this.parent}`);
         
-        parentBlock.append(container);
+        parentBlock.append(block);
     }
 
     delete() {
