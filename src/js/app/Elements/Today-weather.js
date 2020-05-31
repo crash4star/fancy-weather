@@ -11,11 +11,6 @@ class TodayWeather {
         todayTemperature.className = 'content__info-data-temperature';
         todayTemperature.textContent = this.options.temperature;
 
-        const degreeIcon = document.createElement('span');
-        degreeIcon.className = 'content__info-data-temperature-icon';
-
-        todayTemperature.append(degreeIcon);
-
         const todayContentWrapper = document.createElement('div');
         todayContentWrapper.className = 'content__info-data-meteo';
 
@@ -33,7 +28,6 @@ class TodayWeather {
         });
 
         todayWrapper.append(todayTemperature);
-        todayTemperature.append(degreeIcon);
         todayContentWrapper.append(weatherIcon);
         todayContentWrapper.append(meteoWrapper);
         todayWrapper.append(todayContentWrapper);

@@ -19,11 +19,6 @@ class Searchbar {
         const searchBtn = new Button('btn btn-secondary header__options-btn header__options-btn--search', 'search-bar-btn', 'Search');
 
         const searchInput = new Input('text', 'header__search-bar-input', 'search-input', this.searchBy);
-
-        if (this.voice) {
-            const voiceBtn = new Button('header__search-bar-voice-btn', 'voice-search-btn');
-            wrapper.append(voiceBtn.create());
-        }
         
         wrapper.append(searchInput.create());
         wrapper.append(wrapperSearchBtn);

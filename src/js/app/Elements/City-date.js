@@ -1,9 +1,8 @@
 class CityDate {
-    constructor(city, country, date, time) {
+    constructor(city, country, date) {
         this.city = city;
         this.country = country;
         this.date = date;
-        this.time = time;
     }
 
     create() {
@@ -23,7 +22,6 @@ class CityDate {
         
         const timeParagraph = document.createElement('p');
         timeParagraph.className = 'content__info-today-item content__info-today-item--time';
-        timeParagraph.textContent = `${this.time}`;
 
         wrapper.append(locationHeadline);
         wrapperToday.append(dateParagraph);

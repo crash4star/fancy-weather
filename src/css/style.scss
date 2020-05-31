@@ -13,16 +13,26 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-#root::before {
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    transition: all 0.4s ease;
+}
+
+#bg::before {
     content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-image: url('../img/test.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    z-index: -2;
+    background: linear-gradient(#39405cb0, #2b3149f1);
+    z-index: -1;
 }

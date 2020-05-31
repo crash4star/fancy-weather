@@ -3,11 +3,10 @@ function TranslateRequest(request) {
 
     return new Promise((resolve, reject) => {
         fetch(TRANASLATE_URL)
-        .then(res => res.json())
-        .then(data => {
-            const SEARCH_URL = `http://api.openweathermap.org/data/2.5/weather?q=${data}&appid=a9ce39b9ddbf9d684cd7c232eabc2fca`;
-            resolve(SEARCH_URL); 
-        });
+            .then(res => res.json())
+            .then(data => {
+                resolve(data.text[0]);
+            });
     });
 }
 

@@ -1,7 +1,7 @@
 function getCityInfo(city) {
-    const SEARCH_URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a9ce39b9ddbf9d684cd7c232eabc2fca`;
-
-    fetch(SEARCH_URL)
+    const SEARCH_URL = `http://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&appid=a9ce39b9ddbf9d684cd7c232eabc2fca`;
+    return new Promise((resolve, reject) => {
+        fetch(SEARCH_URL)
         .then(res => res.json())
         .then(data => {
             const weekDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date().getDay()];
@@ -11,20 +11,25 @@ function getCityInfo(city) {
             ][new Date().getMonth()];
 
             const cityInfo = {
-                city: data.name,
-                country: data.sys.country,
+                city: data.list[0].name,
+                country: data.list[0].sys.country,
                 date: `${weekDay} ${date} ${monthNames}`,
-                temperature: Math.round(data.main.temp),
-                info: data.weather[0].main,
-                feels: Math.round(data.main.feels_like),
-                windSpeed: Math.round(data.wind.speed),
-                humidityInfo: Math.round(data.main.humidity),
-                latitude: data.coord.lat,
-                longitude: data.coord.lon,
+                temperature: Math.round(data.list[0].main.temp),
+                info: data.list[0].weather[0].description,
+                icon: data.list[0].weather[0].icon,
+                feels: Math.round(data.list[0].main.feels_like),
+                windSpeed: Math.round(data.list[0].wind.speed),
+                humidityInfo: Math.round(data.list[0].main.humidity),
+                latitude: data.list[0].coord.lat,
+                longitude: data.list[0].coord.lon,
             };
 
-            localStorage.setItem('city-info', JSON.stringify(cityInfo));
-        });
+            localStorage.setItem('city', city);
+            localStorage.setItem('weather-info', JSON.stringify(cityInfo));
+            resolve(cityInfo);
+        })
+        .catch(err => alert('City not found'));
+    });
 }
 
 export default getCityInfo;

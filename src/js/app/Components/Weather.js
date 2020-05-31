@@ -2,11 +2,12 @@ import Block from './Block';
 import CityDate from '../Elements/City-date';
 import TodayWeather from '../Elements/Today-weather';
 import FutureWeather from '../Elements/Future-weather';
-
+import getFutureWeather from '../Controllers/Weather/getFutureWeather';
 class Weather extends Block {
-    constructor(parent) {
+    constructor(parent, dataMeteo) {
         super();
         this.parent = parent;
+        this.dataMeteo = dataMeteo;
     }
 
     create() {
@@ -14,44 +15,36 @@ class Weather extends Block {
         weatherBlock.create();
 
         const weatherBlockHtml = document.querySelector(`.${weatherBlock.classStyle}`);
-        const locationInfo = new CityDate('Moscow', 'Russia', 'Mon 28 October', '17:23');
+        const locationInfo = new CityDate(this.dataMeteo.city, this.dataMeteo.country, this.dataMeteo.date);
         weatherBlockHtml.append(locationInfo.create());
 
         const options = {
-            temperature: 11,
-            weatherIcon: 'rain',
+            temperature: this.dataMeteo.temperature,
             meteo: {
-                'Weather': 'Overcast',
-                'Feels like': 7,
-                'Wind': 2,
-                'Humidity': 60
+                'Weather': this.dataMeteo.info,
+                'Feels like': `Feels like ${this.dataMeteo.feels}`,
+                'Wind': `Wind ${this.dataMeteo.windSpeed}`,
+                'Humidity': `Humidity ${this.dataMeteo.humidityInfo}`
             }
         };
 
         const todayWeather = new TodayWeather(options);
         weatherBlockHtml.append(todayWeather.create());
 
+        getFutureWeather()
+            .then(() => {
+                const futureWeather = new FutureWeather(JSON.parse(localStorage.getItem('future')));
+                weatherBlockHtml.append(futureWeather.create());
+            });
+    }
 
-        const days = [
-            {
-                day: 'Tuesday',
-                temperature: 7,
-                weatherIcon: 'rain'
-            },
-            {
-                day: 'Wednesday',
-                temperature: 9,
-                weatherIcon: 'sunny'
-            },
-            {
-                day: 'Thursday',
-                temperature: 13,
-                weatherIcon: 'sunny'
-            }
-        ];
+    getParent() {
+        return this.parent;
+    }
 
-        const futureWeather = new FutureWeather(days);
-        weatherBlockHtml.append(futureWeather.create());
+    delete() {
+        const parentBlock = document.querySelector(`${this.parent}`);
+        parentBlock.innerHTML = '';
     }
 }
 

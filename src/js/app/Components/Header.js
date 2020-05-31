@@ -33,7 +33,7 @@ class Header extends Block {
         const headerSearch = new Block('div', 'header__search-bar', `.${header.classStyle}`);
         headerSearch.create();
 
-        const searchCityBar = new Searchbar('Search city or ZIP', true, `.${headerSearch.classStyle}`, 'search__boot');
+        const searchCityBar = new Searchbar('Search city', true, `.${headerSearch.classStyle}`, 'search__boot');
         searchCityBar.create();
     }
 }

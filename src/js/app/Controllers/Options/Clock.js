@@ -1,8 +1,9 @@
-function Clock(element) {
+function Clock() {
     const now = new Date();
     const time = `${now.getHours()}:${now.getMinutes()}`;
-    console.log(time);
-    
+    const clock = document.querySelector('.content__info-today-item--time');
+    clock.textContent = time;
+
     setTimeout(Clock, 1000);
 }
 
